@@ -11,10 +11,8 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity
 @ToString
 public class AdminDTO {
-    @Id
     private String id;
     private String name;
     private String password;

@@ -12,7 +12,6 @@ import javax.persistence.Id;
 @Data
 @ToString
 public class CarDTO {
-    @Id
     private String id;
     private String number_of_passengers;
     private String transmission_type;
