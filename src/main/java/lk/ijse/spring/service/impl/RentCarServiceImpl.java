@@ -1,6 +1,6 @@
 package lk.ijse.spring.service.impl;
 
-import lk.ijse.spring.dto.RentCar_PK;
+import lk.ijse.spring.entity.RentCar_PK;
 import lk.ijse.spring.dto.RentDTO;
 import lk.ijse.spring.entity.Car;
 import lk.ijse.spring.entity.Rent;
@@ -39,14 +39,14 @@ public class RentCarServiceImpl implements RentCarService {
         if (!rentRepo.existsById(dto.getRid())) {
             rentRepo.save(rent);
 
-//            if (dto.getRentDetails().size() < 1) throw new RuntimeException("No Car added for the order..!");
+            if (dto.getRentDetails().size() < 1) throw new RuntimeException("No Car added for the order..!");
 
-//            //update the item
-//            for (RentDetails rentDetails : rent.getRentDetails()) {
-//                Car car = carRepo.findById(rentDetails.getCarId()).get();
-//                car.set(item.getQtyOnHand() - orderDetail.getQty());
-//                itemRepo.save(item);
-//            }
+            //update the item
+            for (RentDetails rentDetails : rent.getRentDetails()) {
+                Car car = carRepo.findById(rentDetails.getCarId()).get();
+                car.setStatus(rentDetails.getStatus());
+                carRepo.save(car);
+            }
 
         } else {
             throw new RuntimeException("Purchase Rent Failed..!, Rent ID " + dto.getRid() + " Already Exist.!");
@@ -73,16 +73,6 @@ public class RentCarServiceImpl implements RentCarService {
                 Car car = carRepo.findById(rd.getCarId()).get();
                 RentDetails previous = rentDetailsRepo.findById(new RentCar_PK(rd.getRid(), rd.getCarId())).get();
 
-//                //Update the Item Qty
-//                int newQty = od.getQty();
-//                int prevQty = previous.getQty();
-//                if (newQty > prevQty) {
-//                    int dif = newQty - prevQty;
-//                    item.setQtyOnHand(item.getQtyOnHand() - dif);
-//                } else if (newQty < prevQty) {
-//                    int dif = prevQty - newQty;
-//                    item.setQtyOnHand(item.getQtyOnHand() + dif);
-//                }
                 carRepo.save(car);
             }
             //then delete the old order

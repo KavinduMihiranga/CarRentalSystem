@@ -1,6 +1,6 @@
 package lk.ijse.spring.repo;
 
-import lk.ijse.spring.dto.RentCar_PK;
+import lk.ijse.spring.entity.RentCar_PK;
 import lk.ijse.spring.entity.RentDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
 

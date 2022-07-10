@@ -1,6 +1,5 @@
 package lk.ijse.spring.entity;
 
-import lk.ijse.spring.dto.RentCar_PK;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +18,7 @@ public class RentDetails {
     private String rid;
     @Id
     private String carId;
+    private String status;
     private int qty;
     private double unitPrice;
 

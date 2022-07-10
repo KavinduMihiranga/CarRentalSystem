@@ -22,6 +22,8 @@ public class Car {
     private String registration_number;
     private String fuel_type;
     private String brand;
+    private String car_type;
+    private String status;
     private double price_for_the_extra_km;
     private double free_mileage;
     private double price_for_the_rent_duration;

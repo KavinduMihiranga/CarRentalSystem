@@ -21,8 +21,8 @@ public class Rent {
 
     //Out=verse
     @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
-    @JoinColumn(name = "carid",referencedColumnName = "id",nullable = false)
-    private Car car;
+    @JoinColumn(name = "userId",referencedColumnName = "id",nullable = false)
+    private User user;
 
     //Inverse
     @OneToMany(mappedBy = "rent",cascade = CascadeType.ALL)

@@ -5,6 +5,7 @@ import lk.ijse.spring.dto.UserDTO;
 import lk.ijse.spring.service.UserService;
 import lk.ijse.spring.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import java.awt.*;
 @RequestMapping("api/v1/user")
 @CrossOrigin
 public class UserController {
+
     @Autowired
     UserService userService;
 
@@ -24,6 +26,7 @@ public class UserController {
     }
 
     @ResponseStatus(HttpStatus.CREATED) //201
+
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil save_user(@ModelAttribute UserDTO user) {
         userService.save_user(user);

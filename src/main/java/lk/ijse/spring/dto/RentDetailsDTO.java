@@ -16,6 +16,7 @@ import javax.persistence.Id;
 public class RentDetailsDTO {
     private String rid;
     private String carId;
+    private String status;
     private int qty;
     private double unitPrice;
 
