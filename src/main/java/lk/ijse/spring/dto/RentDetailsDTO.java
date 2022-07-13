@@ -14,8 +14,8 @@ import javax.persistence.Id;
 @Data
 @ToString
 public class RentDetailsDTO {
-    private String rid;
-    private String carId;
+    private String rId;
+    private String cId;
     private String status;
     private int qty;
     private double unitPrice;

@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @Data
 @ToString
 public class DriverDTO {
-    private String id;
+    private String dId;
     private String name;
     private String password;
     private String driver_licence_no;

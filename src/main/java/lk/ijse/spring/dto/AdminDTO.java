@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @Data
 @ToString
 public class AdminDTO {
-    private String id;
+    private String aId;
     private String name;
     private String password;
     private String email;

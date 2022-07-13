@@ -15,7 +15,7 @@ import javax.persistence.Id;
 @ToString
 public class Car {
     @Id
-    private String id;
+    private String cId;
     private String number_of_passengers;
     private String transmission_type;
     private String color;
@@ -27,5 +27,8 @@ public class Car {
     private double price_for_the_extra_km;
     private double free_mileage;
     private double price_for_the_rent_duration;
+    private double damage_waver;
+    private double run_km;
+
 
 }

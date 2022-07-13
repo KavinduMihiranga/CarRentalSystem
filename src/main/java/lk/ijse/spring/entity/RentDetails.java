@@ -15,20 +15,20 @@ import javax.persistence.*;
 @IdClass(RentCar_PK.class)
 public class RentDetails {
     @Id
-    private String rid;
+    private String rId;
     @Id
-    private String carId;
+    private String cId;
     private String status;
     private int qty;
     private double unitPrice;
 
     //Out-Verse
     @ManyToOne
-    @JoinColumn(name = "rid",referencedColumnName = "rid",insertable = false,updatable = false)
+    @JoinColumn(name = "rentId",referencedColumnName = "rId",insertable = false,updatable = false)
     private Rent rent;
 
     //Out-verse
     @ManyToOne
-    @JoinColumn(name = "carId",referencedColumnName = "id",insertable = false,updatable = false)
+    @JoinColumn(name = "carId",referencedColumnName = "cId",insertable = false,updatable = false)
     private Car car;
 }

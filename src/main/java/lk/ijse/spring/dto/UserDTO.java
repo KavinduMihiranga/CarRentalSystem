@@ -10,7 +10,7 @@ import lombok.ToString;
 @Data
 @ToString
 public class UserDTO {
-    private String id;
+    private String uId;
     private String name;
     private String other_required_detail;
     private String pick_up_time_and_date;

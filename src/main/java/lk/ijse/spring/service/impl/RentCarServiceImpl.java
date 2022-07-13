@@ -38,12 +38,13 @@ public class RentCarServiceImpl implements RentCarService {
         Rent rent = mapper.map(dto, Rent.class);
         if (!rentRepo.existsById(dto.getRid())) {
             rentRepo.save(rent);
+            System.out.println(rent);
 
-            if (dto.getRentDetails().size() < 1) throw new RuntimeException("No Car added for the order..!");
+            if (dto.getRentDetails().size() < 1) throw new RuntimeException("No items added for the Rent..!");
 
             //update the item
             for (RentDetails rentDetails : rent.getRentDetails()) {
-                Car car = carRepo.findById(rentDetails.getCarId()).get();
+                Car car = carRepo.findById(rentDetails.getCId()).get();
                 car.setStatus(rentDetails.getStatus());
                 carRepo.save(car);
             }
@@ -70,8 +71,8 @@ public class RentCarServiceImpl implements RentCarService {
             if (dto.getRentDetails().size() < 1) throw new RuntimeException("No items added for the rent..!");
 
             for (RentDetails rd : rent.getRentDetails()) {
-                Car car = carRepo.findById(rd.getCarId()).get();
-                RentDetails previous = rentDetailsRepo.findById(new RentCar_PK(rd.getRid(), rd.getCarId())).get();
+                Car car = carRepo.findById(rd.getCId()).get();
+                RentDetails previous = rentDetailsRepo.findById(new RentCar_PK(rd.getRId(), rd.getCId())).get();
 
                 carRepo.save(car);
             }

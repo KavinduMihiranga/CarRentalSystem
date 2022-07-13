@@ -25,10 +25,11 @@ public class AdminServiceImpl implements AdminService {
     private ModelMapper modelMapper;
     @Override
     public void save_admin(AdminDTO dto) {
-        if (!adminRepo.existsById(dto.getId())){
+        if (!adminRepo.existsById(dto.getAId())){
             adminRepo.save(modelMapper.map(dto, Admin.class));
+
         }else {
-            throw new RuntimeException("Adin Already Exist..!");
+            throw new RuntimeException("Admin Already Exist..!");
         }
     }
 
@@ -43,7 +44,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void update_admin(AdminDTO dto) {
-        if (adminRepo.existsById(dto.getId())) {
+        if (adminRepo.existsById(dto.getAId())) {
             adminRepo.save(modelMapper.map(dto, Admin.class));
         } else {
             throw new RuntimeException("No Such Admin To Update..! Please Check the ID..!");

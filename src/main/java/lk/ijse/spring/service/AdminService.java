@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface AdminService {
     void save_admin(AdminDTO dto);
-    void delete_admin(String id);
+    void delete_admin(String uId);
     void update_admin(AdminDTO dto);
-    AdminDTO search_admin(String id);
+    AdminDTO search_admin(String uId);
     List<AdminDTO> get_all_admin();
 }

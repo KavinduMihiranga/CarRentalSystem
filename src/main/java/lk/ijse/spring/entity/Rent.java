@@ -16,12 +16,12 @@ import java.util.List;
 @ToString
 public class Rent {
     @Id
-    private String rid;
+    private String rId;
     private LocalDate date;
 
     //Out=verse
     @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
-    @JoinColumn(name = "userId",referencedColumnName = "id",nullable = false)
+    @JoinColumn(name = "userId",referencedColumnName = "uId",nullable = false)
     private User user;
 
     //Inverse

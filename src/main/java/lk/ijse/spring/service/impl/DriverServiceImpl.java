@@ -26,7 +26,7 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public void save_drive(DriverDTO dto) {
-        if (!driverRepo.existsById(dto.getId())){
+        if (!driverRepo.existsById(dto.getDId())){
             driverRepo.save(modelMapper.map(dto, Driver.class));
         }else {
             throw new RuntimeException("Driver Already Exist..!");
@@ -44,7 +44,7 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public void update_driver(DriverDTO dto) {
-        if (driverRepo.existsById(dto.getId())) {
+        if (driverRepo.existsById(dto.getDId())) {
             driverRepo.save(modelMapper.map(dto, Driver.class));
         } else {
             throw new RuntimeException("No Such Driver To Update..! Please Check the ID..!");
