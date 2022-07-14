@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -59,6 +60,24 @@ public class PaymentServiceImpl implements PaymentService {
             return modelMapper.map(paymentRepo.findById(pid).get(), PaymentDTO.class);
         } else {
             throw new RuntimeException("No Payment For " + pid + " ..!");
+        }
+    }
+
+    @Override
+    public PaymentDTO search_Balance(double balance) {
+        if (paymentRepo.existsById(String.valueOf(balance))) {
+            return modelMapper.map(paymentRepo.findPaymentByBalance(String.valueOf(balance)).getBalance(), PaymentDTO.class);
+        } else {
+            throw new RuntimeException("No Payment For " + balance + " ..!");
+        }
+    }
+
+    @Override
+    public PaymentDTO search_payment_with_date(LocalDate date) {
+        if (paymentRepo.existsById(String.valueOf(date))) {
+            throw new RuntimeException("No Payment For " + date + " ..!");
+        } else {
+            return modelMapper.map(paymentRepo.findPaymentByDate(String.valueOf(date)).getDate(), PaymentDTO.class);
         }
     }
 

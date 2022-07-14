@@ -44,5 +44,29 @@ public class CarController {
     public ResponseUtil search_car(@PathVariable String id) {
         return new ResponseUtil(200,"Ok",carService.search_car(id));
     }
+//  @GetMapping(path = "/{passenger}",produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseUtil search_no_of_passenger(@PathVariable String passenger) {
+//        return new ResponseUtil(200,"Ok",carService.findByNumber_of_passengers(passenger));
+//    }
+// @GetMapping(path = "/{type}",produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseUtil search_transmission_type(@PathVariable String type) {
+//        return new ResponseUtil(200,"Ok",carService.findByTransmission_type(type));
+//    }
+ @GetMapping(path = "/brand{brand}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil search_brand(@PathVariable String brand) {
+        return new ResponseUtil(200,"Ok",carService.findByBrand(brand));
+    }
+// @GetMapping(path = "/{rent}",produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseUtil search_rent(@PathVariable String rent) {
+//        return new ResponseUtil(200,"Ok",carService.findByPrice_for_the_rent_duration(rent));
+//    }
+// @GetMapping(path = "/{extra}",produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseUtil search_extraKm(@PathVariable String extra) {
+//        return new ResponseUtil(200,"Ok",carService.findByPrice_for_the_extraKm(extra));
+//    }
+// @GetMapping(path = "/fuel_type{fuel_type}",produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseUtil search_fuel_type(@PathVariable String fuel_type) {
+//        return new ResponseUtil(200,"Ok",carService.findByFuel_type(fuel_type));
+//    }
 
 }

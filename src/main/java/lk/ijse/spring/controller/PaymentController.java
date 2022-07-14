@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+
 @RestController
 @RequestMapping("api/v1/payment")
 @CrossOrigin
@@ -43,4 +45,14 @@ public class PaymentController {
     public ResponseUtil search_payment(@PathVariable String pid) {
         return new ResponseUtil(200, "Ok", paymentService.search_payment(pid));
     }
+    @GetMapping(path = "/date/{date}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil search_payment_with_date(@PathVariable LocalDate date) {
+        return new ResponseUtil(200, "Ok", paymentService.search_payment(String.valueOf(date)));
+    }
+    @GetMapping(path = "/balance/{balance}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil search_payment_with_date(@PathVariable Double balance) {
+        return new ResponseUtil(200, "Ok", paymentService.search_payment(String.valueOf(balance)));
+    }
+
+
 }

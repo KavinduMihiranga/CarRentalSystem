@@ -18,7 +18,7 @@ import java.util.List;
 public class Payment {
     @Id
     private String pId;
-    @JsonFormat(pattern = "yyyy-MM-dd")
+//    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
     private double rental_fee;
     private double damage_waver;

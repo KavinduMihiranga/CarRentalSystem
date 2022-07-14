@@ -36,9 +36,10 @@ public class RentCarServiceImpl implements RentCarService {
     @Override
     public void book_rent(RentDTO dto) {
         Rent rent = mapper.map(dto, Rent.class);
+        System.out.println("dtohhhhoooooooooooooo"+rent);
         if (!rentRepo.existsById(dto.getRid())) {
             rentRepo.save(rent);
-            System.out.println(rent);
+            System.out.println("servicedjfkjdksjlkjlj"+rent);
 
             if (dto.getRentDetails().size() < 1) throw new RuntimeException("No items added for the Rent..!");
 

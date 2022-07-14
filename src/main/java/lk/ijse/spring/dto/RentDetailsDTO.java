@@ -14,10 +14,11 @@ import javax.persistence.Id;
 @Data
 @ToString
 public class RentDetailsDTO {
-    private String rId;
+    private String bId;
     private String cId;
     private String status;
     private int qty;
     private double unitPrice;
+    private String needDriver;
 
 }

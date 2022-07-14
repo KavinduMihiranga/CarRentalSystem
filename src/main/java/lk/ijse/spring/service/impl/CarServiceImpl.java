@@ -62,4 +62,44 @@ public class CarServiceImpl implements CarService {
         return modelMapper.map(carRepo.findAll(), new TypeToken<List<CarDTO>>() {
         }.getType());
     }
+//
+//    @Override
+//    public List<CarDTO> findByNumber_of_passengers(String no) {
+//
+//        return modelMapper.map(carRepo.findByNumber_of_passengers(no), new TypeToken<List<CarDTO>>() {
+//        }.getType());
+//    }
+//
+//    @Override
+//    public List<CarDTO> findByTransmission_type(String type) {
+//        return modelMapper.map(carRepo.findByTransmission_type(type), new TypeToken<List<CarDTO>>() {
+//        }.getType());
+//    }
+//
+    @Override
+    public List<CarDTO> findByBrand(String brand) {
+        return modelMapper.map(carRepo.findByBrand(brand), new TypeToken<List<CarDTO>>() {
+        }.getType());
+    }
+//
+//    @Override
+//    public List<CarDTO> findByPrice_for_the_rent_duration(String duration) {
+//        return modelMapper.map(carRepo.findByPrice_for_the_rent_duration(duration), new TypeToken<List<CarDTO>>() {
+//        }.getType());
+//    }
+//
+//
+//    @Override
+//    public List<CarDTO> findByPrice_for_the_extraKm(String extraKm) {
+//
+//        return modelMapper.map(carRepo.findByPrice_for_the_extra_km(extraKm), new TypeToken<List<CarDTO>>() {
+//        }.getType());
+//    }
+//
+//
+//    @Override
+//    public List<CarDTO> findByFuel_type(String fuel_type) {
+//        return modelMapper.map(carRepo.findByFuel_type(fuel_type), new TypeToken<List<CarDTO>>() {
+//        }.getType());
+//    }
 }
